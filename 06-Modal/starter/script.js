@@ -17,12 +17,24 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
+//When pressing any of the buttons
 for (const element of btnShowModal) {
   element.addEventListener('click', showModal);
 }
 
+//When the X is clicked
 xBtn.addEventListener('click', closeModal);
 
+//When clicked on the overlay screen
 overlay.addEventListener('click', closeModal);
 
+//When pressing esc
+document.addEventListener('keydown', function (e) {
+  console.log('Key was pressed');
+  //'e' has access to the event and knows whihc key was presses
+  console.log(e.key);
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
 //Functions
